@@ -33,3 +33,18 @@
     function goBack() {
       window.history.back();
     }
+ // Function to get URL parameter by name
+    function getUrlParameter(name) {
+      name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+      var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    };
+
+    // Get the value from URL parameter
+    var passedValue = getUrlParameter('data');
+ 
+    var textBoxt = document.getElementById('inputText');
+    textBoxt.value = "button id: " + passedValue;
+      document.getElementById("displayValue").innerText = "your product name: " + passedValue;
+
